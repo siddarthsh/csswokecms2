@@ -1,5 +1,5 @@
 const path = require('path')
-const Post = require('../app/models/post')
+const Post = require('../app/models/Post')
 
 module.exports = (req, res) => {
   const post = Post.findById(req.params.id);
