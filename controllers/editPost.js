@@ -1,0 +1,8 @@
+const Post = require('../app/models/post')
+
+module.exports = async (req, res) => {
+    const post = await Post.findById(req.params.id);
+    res.render("edit", {
+        post
+    });
+}

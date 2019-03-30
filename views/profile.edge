@@ -1,0 +1,45 @@
+@layout('layouts.admin')
+
+@section('content')
+
+      <div class="container">
+      <div class="row justify-content-center" >
+        <div class="col-12 col-md-5 col-xl-10">
+
+          <!-- Heading -->
+          <h1 class="display-4 text-center mb-3">
+            Welcome to your Dashboard
+          </h1>
+
+
+          	<div class="page-header text-center">
+          		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+          		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+          	</div>
+
+          	<div class="row">
+
+          		<!-- LOCAL INFORMATION -->
+          		<div class="col-sm-6">
+          			<div class="well">
+          				<h3><span class="fa fa-user"></span> Local</h3>
+
+          					<p>
+          						<strong>id</strong>: {{user._id}}<br>
+          						<strong>Display Name</strong>: {{user.local.username}}<br>
+          						<strong>email</strong>: {{user.local.email}}<br>
+          						<strong>password</strong>: {{user.local.password}}
+          					</p>
+
+          			</div>
+          		</div>
+
+          	</div>
+
+
+
+        </div>
+      </div> <!-- / .row -->
+    </div>
+
+@endsection

@@ -1,0 +1,27 @@
+@layout('layouts.admin')
+
+@section('content')
+
+      <div class="container">
+      <div class="row justify-content-center" >
+        <div class="col-12 col-md-5 col-xl-10">
+
+          <div class="table mb-0">
+            <table class="table table-sm table-nowrap card-table">
+              <thead><tr><th>Post Name</th><th>Options</th></tr></thead>
+              <tbody>
+                @each(post in posts)
+                <tr><td>{{ post.title }}</td><td><a href="/post/{{ post._id }}">View</a></td><td><a href="/edit/{{ post._id }}">Edit</a></td><td><a href="/delete/{{ post._id }}">Delete</a></td></tr>
+                @endeach
+              </tbody>
+            </table>
+          </div>
+
+
+
+
+                  </div>
+                </div> <!-- / .row -->
+              </div>
+
+          @endsection
