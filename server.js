@@ -41,6 +41,6 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 // launch ======================================================================
 
-server.listen(port, () => {
+app.listen(port, () => {
     console.log("App is running on port " + port);
 });
