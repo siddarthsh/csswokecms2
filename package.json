@@ -19,7 +19,10 @@
     "nodemon": "^1.18.10",
     "passport": "latest",
     "passport-local": "latest",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "negotiator": ">=0.6.1",
+    "fresh": ">=0.5.2",
+    "mime": ">=1.4.1"
   },
   "scripts": {
     "start": "node server.js",
