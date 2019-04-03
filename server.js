@@ -9,8 +9,6 @@ var port = process.env.PORT || 4000;
 var mongoose = require("mongoose");
 var passport = require("passport");
 var flash = require("connect-flash");
-require("newrelic");
-
 var configDB = require("./config/database.js");
 
 // configuration ===============================================================
