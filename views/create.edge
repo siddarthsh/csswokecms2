@@ -18,35 +18,62 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <form action="/posts/store" method="POST" encType="multipart/form-data">
-
+        <!-- Title of the Post -->
         <div class="control-group">
 
           <div class="form-group floating-label-form-group controls">
-            <input type="text" style="font-size: 42px;" name="title" placeholder="Title" class="form-control">
+            <input type="text" style="font-size: 42px;" name="temp-title" placeholder="Title" class="form-control" id="temp-title">
             <input type="text" style="margin:10px 0;" id="imagelink" name="imageurl" placeholder="Enter Image URL" class="form-control"/>
 
           </div>
         </div>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Category</label>
-          <select class="custom-select" name="category">
-          <option value="Search Engine Optimization">Search Engine Optimization</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Social Media">Social Media</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-          </select>        </div>
-      </div>
+        <!-- Content of the Post -->
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <textarea name="content" id="mytextarea" placeholder="Write the content in HTML here" cols="30" rows="10" class="form-control editable"></textarea>
           </div>
         </div>
-
-
-        <div class="form-group my-4 text-right">
-          <button class="btn btn-primary">Publish Post</button>
+        <!-- Window that opens when we are ready to publish -->
+        <div id="final-edits">
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <!-- Header -->
+                <div class="header mt-md-5">
+                  <div class="header-body" style="padding-bottom:0px;">
+                    <div class="row align-items-center">
+                        <div class="col">
+                         <!-- Title -->
+                         <input id="result-title" style="font-size: 30px;" type="text" name="title" placeholder="Title" class="form-control header-title" readonly>
+                        </div>
+                        <div class="col-auto">
+                        <!-- Button -->
+                         <div class="form-group my-4 text-right">
+                        <a class="btn btn-white" onclick="hidePublishPost()">Go Back</a>
+                        <button class="btn btn-primary">Publish Post</button>
+                      </div>                    
+                     </div>
+                    </div>
+                    <!-- / .row -->
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                      <label>Category</label>
+                        <select class="custom-select" name="category">
+                          <option value="Search Engine Optimization">Search Engine Optimization</option>
+                          <option value="Web Development">Web Development</option>
+                          <option value="Social Media">Social Media</option>
+                          <option value="Miscellaneous">Miscellaneous</option>
+                        </select> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- / .row -->
+         </div>
         </div>
+        <!-- Open the "final-edits" window -->
+        <input type="button" class="btn btn-primary" name="answer" value="Ready to Publish?" onclick="publishPost()" />
       </form>
     </div>
   </div>
