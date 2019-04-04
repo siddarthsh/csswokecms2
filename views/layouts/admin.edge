@@ -40,6 +40,10 @@
               <div class="dropdown-menu dropdown-menu-right">
                 <a href="../posts/new" class="dropdown-item">New post</a>
                 <a href="../viewposts" class="dropdown-item">Posts</a>
+                @if(user.local.level == "Admin")
+                <hr class="dropdown-divider">
+                <a href="../viewusers" class="dropdown-item">Users</a>
+                @endif
                 <hr class="dropdown-divider">
                 <a href="../profile" class="dropdown-item">Profile</a>
                 <a href="../logout" class="dropdown-item">Sign out</a>

@@ -2,12 +2,15 @@
 
 const storePostController = require("../controllers/storePost");
 const viewPostsController = require("../controllers/viewPosts");
+const viewUsersController = require("../controllers/viewUsers");
 const getPostController = require("../controllers/getPost");
 const indexController = require("../controllers/index");
 const storePost = require("../middleware/storePost");
 const deletePostController = require("../controllers/deletePost");
+const deleteUserController = require("../controllers/deleteUser");
 const editPostController = require("../controllers/editPost");
 const storeEditedPostController = require("../controllers/storeEditedPost");
+const isAdminController = require("../controllers/isAdmin");
 
 module.exports = function(app, passport) {
   // =====================================
@@ -71,8 +74,10 @@ module.exports = function(app, passport) {
   });
   app.post("/posts/store", isLoggedIn, storePost, storePostController);
   app.get("/viewposts", isLoggedIn, viewPostsController);
+  app.get("/viewusers", isLoggedIn, isAdminController, viewUsersController);
   app.use("/posts/store", isLoggedIn, storePost);
   app.get("/post/:id", getPostController);
+  app.get("/delete/user/:id", isLoggedIn, deleteUserController);
   app.get("/delete/:id", isLoggedIn, deletePostController);
   app.get("/edit/:id", isLoggedIn, editPostController);
   app.post("/edit/store", isLoggedIn, storeEditedPostController);
