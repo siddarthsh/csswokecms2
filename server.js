@@ -10,6 +10,8 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var flash = require("connect-flash");
 var configDB = require("./config/database.js");
+const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 
 // configuration ===============================================================
 mongoose
@@ -27,7 +29,13 @@ app.use(express.bodyParser()); // get information from html forms
 app.use(express.static("public"));
 app.use(expressEdge);
 app.set("views", __dirname + "/views"); // set up ejs for templating
-
+app.use(fileUpload());
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 // required for passport
 app.use(express.session({ secret: "ilovescotchscotchyscotchscotch" })); // session secret
 app.use(passport.initialize());

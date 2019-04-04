@@ -13125,7 +13125,7 @@ a.text-white:hover {
 
 .navbar {
   border-width: 0 0 1px;
-  border-style: solid
+  border-style: none;
 }
 
 .navbar-dark {
@@ -13164,8 +13164,8 @@ a.text-white:hover {
 }
 
 .navbar-light {
-  border-color: #e3ebf6;
-  background-color: #fff
+
+  background-color: #fff;
 }
 
 .navbar-light .navbar-heading {
@@ -15846,8 +15846,8 @@ button:focus {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .dropdown-menu {
-    width: 26rem;
+    width: 300px;
   }
 }

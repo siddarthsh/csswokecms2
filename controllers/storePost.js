@@ -1,11 +1,18 @@
-const path = require('path')
-const Post = require('../app/models/Post')
+const path = require("path");
+const Post = require("../app/models/Post");
 
 module.exports = (req, res) => {
-  Post.create(req.body, (error, user) => {
-      if (error) {
-          return res.redirect('/posts/new')
+  const { image } = req.files;
+
+  image.mv(path.resolve(__dirname, "..", "public/posts", image.name), error => {
+    Post.create(
+      {
+        ...req.body,
+        image: `/posts/${image.name}`
+      },
+      (error, post) => {
+        res.redirect("/viewposts");
       }
-      res.redirect('/viewposts')
-  })
-}
+    );
+  });
+};
