@@ -15851,3 +15851,8 @@ button:focus {
     width: 300px;
   }
 }
+
+.getting-started {
+  display: flex;
+  align-items: center;
+}
