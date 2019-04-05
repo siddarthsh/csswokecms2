@@ -24,6 +24,11 @@
           <div class="form-group floating-label-form-group controls">
             <input type="text" style="font-size: 42px;" name="temp-title" placeholder="Title" class="form-control" id="temp-title">
              <input type="file" name="image" class="form-control-file">
+            <!-- Author -->
+             <input type="text" style="display:none;" value="{{user.local.username}}" name="author" placeholder="Author" class="form-control" id="author" readonly>
+            <!-- AuthorID -->
+             <input type="text" style="display:none;" value="{{user.id}}" name="authorid" placeholder="AuthorID" class="form-control" id="authorid" readonly>
+             
           </div>
         </div>
         <!-- Content of the Post -->

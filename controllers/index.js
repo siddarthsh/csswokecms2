@@ -1,9 +1,10 @@
-const Post = require('../app/models/Post')
+const Post = require("../app/models/Post");
 
 module.exports = async (req, res) => {
-    const posts = await Post.find({});
+  const posts = await Post.find({});
 
-    res.render("index", {
-        posts
-    });
-}
+  res.render("index", {
+    user: req.user,
+    posts
+  });
+};

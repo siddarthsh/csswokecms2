@@ -1,10 +1,9 @@
 const User = require("../app/models/user");
 
 module.exports = async (req, res) => {
-  const users = await User.find({});
-
-  res.render("viewusers", {
+  const edituser = await User.findById(req.params.id);
+  res.render("editUser", {
     user: req.user,
-    users
+    edituser
   });
 };

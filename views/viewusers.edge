@@ -13,7 +13,7 @@
                 @each(user in users)
                 <tr>
                   <td>{{ user.local.email }}</td>
-                  <td>{{ user.local.level }}</td>
+                  <td><a href="/edit/user/{{ user._id }}">Edit</a></td>
                   <td><a href="/delete/user/{{ user._id }}">Delete</a></td>
                 </tr>
                 @endeach

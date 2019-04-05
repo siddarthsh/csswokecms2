@@ -4,6 +4,7 @@
 // get all the tools we need
 var express = require("express");
 const expressEdge = require("express-edge");
+const edge = require("edge.js");
 var app = express();
 var port = process.env.PORT || 4000;
 var mongoose = require("mongoose");
@@ -12,7 +13,6 @@ var flash = require("connect-flash");
 var configDB = require("./config/database.js");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
-
 // configuration ===============================================================
 mongoose
   .connect(configDB.url, { useNewUrlParser: true })

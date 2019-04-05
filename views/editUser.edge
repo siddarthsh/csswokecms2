@@ -1,0 +1,98 @@
+@layout('layouts.admin')
+
+@section('content')
+
+
+<!-- SCRIPTS -->
+<script>
+$( document ).ready(function () {
+  document.getElementById("{{edituser.local.level}}").selected = "true";
+});
+</script>
+
+<div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 col-xl-4 my-5">
+
+          <!-- Heading -->
+          <h1 class="display-4 text-center mb-3">
+            Edit User
+          </h1>
+
+          <!-- Form -->
+          <form action="/edit/user/store" method="POST" encType="multipart/form-data">
+
+                        <!-- ID -->
+            <div class="form-group" style="display:none;" >
+
+
+              <!-- Input -->
+              <input type="text" value="{{edituser._id}}" name="id" class="form-control">
+
+            </div>
+
+            <!-- Username -->
+            <div class="form-group">
+
+              <!-- Label -->
+              <label>Display Name</label>
+
+              <!-- Input -->
+              <input type="text" value="{{edituser.local.username}}" name="username" class="form-control">
+
+            </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+
+                          <!-- Label -->
+                          <label>Email</label>
+
+                          <!-- Input -->
+                          <input type="email" value="{{edituser.local.email}}" placeholder="Enter your email" name="email" class="form-control">
+
+                        </div>
+
+
+            
+            <!-- User Level -->
+            <div class="form-group">
+
+              <!-- Label -->
+              <label>
+               Level
+              </label>
+
+              <!-- Input group -->
+              <div class="input-group">
+
+                <!-- Input -->
+                        <select class="custom-select" name="level">
+                          <option id="Admin" value="Admin">Admin</option>
+                          <option id="User" value="User">User</option>
+                          <option id="Moderator" value="Moderator">Moderator</option>
+                        </select> 
+
+
+              </div>
+            </div>
+
+
+
+
+
+            <!-- Submit -->
+            <button class="btn btn-lg btn-block btn-primary mb-3">
+              Save User
+            </button>
+
+
+          </form>
+
+        </div>
+      </div> <!-- / .row -->
+    </div>
+
+
+    
+@endsection

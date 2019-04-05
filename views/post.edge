@@ -1,4 +1,4 @@
-@layout('layouts.app')
+@layout('layouts.admin')
 
 @section('content')
 
@@ -12,9 +12,11 @@
 					</p>
 					<h1 class="display-4 secondfont mb-3 font-weight-bold">{{post.title}}</h1>
 					<div class="d-flex align-items-center">
-						<small class="ml-2">By Siddarth Sharma
+						<small class="ml-2">By {{post.author}}
 							<span class="text-muted d-block">on {{ post.createdAt.toDateString()}} &middot; <div style="float:right;" class="eta"></div></span>
-							<span><a href="/edit/{{ post._id }}">Edit</a></span>
+							@if(user.id == post.authorid)
+							<span><a href="/edit/post/{{ post._id }}">Edit</a></span>
+							@endif
 						</small>
 					</div>
 				</div>

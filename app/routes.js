@@ -9,8 +9,11 @@ const storePost = require("../middleware/storePost");
 const deletePostController = require("../controllers/deletePost");
 const deleteUserController = require("../controllers/deleteUser");
 const editPostController = require("../controllers/editPost");
+const editUserController = require("../controllers/editUser");
 const storeEditedPostController = require("../controllers/storeEditedPost");
-const isAdminController = require("../controllers/isAdmin");
+const storeEditedUserController = require("../controllers/storeEditedUser");
+const isAdmin = require("../controllers/isAdmin");
+const isMod = require("../controllers/isMod");
 
 module.exports = function(app, passport) {
   // =====================================
@@ -68,19 +71,21 @@ module.exports = function(app, passport) {
     });
   });
   app.get("/posts/new", isLoggedIn, function(req, res) {
-    res.render("create", {
+    res.render("createposts", {
       user: req.user // get the user out of session and pass to template
     });
   });
   app.post("/posts/store", isLoggedIn, storePost, storePostController);
-  app.get("/viewposts", isLoggedIn, viewPostsController);
-  app.get("/viewusers", isLoggedIn, isAdminController, viewUsersController);
+  app.get("/viewposts", isLoggedIn, isMod, viewPostsController);
+  app.get("/viewusers", isLoggedIn, isAdmin, viewUsersController);
   app.use("/posts/store", isLoggedIn, storePost);
   app.get("/post/:id", getPostController);
   app.get("/delete/user/:id", isLoggedIn, deleteUserController);
   app.get("/delete/:id", isLoggedIn, deletePostController);
-  app.get("/edit/:id", isLoggedIn, editPostController);
-  app.post("/edit/store", isLoggedIn, storeEditedPostController);
+  app.get("/edit/user/:id", isLoggedIn, isAdmin, editUserController);
+  app.post("/edit/user/store", isLoggedIn, storeEditedUserController);
+  app.get("/edit/post/:id", isLoggedIn, isMod, editPostController);
+  app.post("/edit/post/store", isLoggedIn, storeEditedPostController);
 
   app.get("/passwordreset", (req, res) => {
     res.render("passwordreset");
