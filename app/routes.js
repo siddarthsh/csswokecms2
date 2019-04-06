@@ -12,6 +12,7 @@ const editPostController = require("../controllers/editPost");
 const editUserController = require("../controllers/editUser");
 const storeEditedPostController = require("../controllers/storeEditedPost");
 const storeEditedUserController = require("../controllers/storeEditedUser");
+const storeEditedProfileController = require("../controllers/storeEditedProfile");
 const isAdmin = require("../controllers/isAdmin");
 const isMod = require("../controllers/isMod");
 
@@ -70,6 +71,11 @@ module.exports = function(app, passport) {
       user: req.user // get the user out of session and pass to template
     });
   });
+  app.get("/settings", isLoggedIn, function(req, res) {
+    res.render("settings", {
+      user: req.user // get the user out of session and pass to template
+    });
+  });
   app.get("/posts/new", isLoggedIn, function(req, res) {
     res.render("createposts", {
       user: req.user // get the user out of session and pass to template
@@ -84,6 +90,7 @@ module.exports = function(app, passport) {
   app.get("/delete/:id", isLoggedIn, deletePostController);
   app.get("/edit/user/:id", isLoggedIn, isAdmin, editUserController);
   app.post("/edit/user/store", isLoggedIn, storeEditedUserController);
+  app.post("/edit/profile/store", isLoggedIn, storeEditedProfileController);
   app.get("/edit/post/:id", isLoggedIn, isMod, editPostController);
   app.post("/edit/post/store", isLoggedIn, storeEditedPostController);
 

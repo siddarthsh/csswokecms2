@@ -51,6 +51,7 @@
                 @endif
                 <hr class="dropdown-divider">
                 <a href="/profile" class="dropdown-item">Profile</a>
+                <a href="/settings" class="dropdown-item">Settings</a>
                 <a href="/logout" class="dropdown-item">Sign out</a>
               </div>
 
@@ -76,8 +77,13 @@
 
 
 
-<script src="/js/theme.min.js"></script>
-<script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/theme.min.js"></script>
+<script src="../libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/plugins/readingtime.js"></script>
+<script>
+$('.article-post').readingTime();
+</script>
+
 <style>
 #final-edits {
   display:none;

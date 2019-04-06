@@ -3,12 +3,6 @@
 @section('content')
 
 
-<!-- SCRIPTS -->
-<script>
-$( document ).ready(function () {
-  document.getElementById("{{user.local.level}}").selected = "true";
-});
-</script>
 
 <div class="container">
       <div class="row justify-content-center">
@@ -49,7 +43,7 @@ $( document ).ready(function () {
                           <label>Email</label>
 
                           <!-- Input -->
-                          <input type="email" value="{{user.local.email}}" placeholder="Enter your email" name="email" class="form-control">
+                          <input type="email" value="{{user.local.email}}" placeholder="Enter your email" name="email" class="form-control" readonly>
 
                         </div>
 
@@ -66,13 +60,8 @@ $( document ).ready(function () {
               <!-- Input group -->
               <div class="input-group">
 
-                <!-- Input -->
-                        <select class="custom-select" name="level" disabled>
-                          <option id="Admin" value="Admin">Admin</option>
-                          <option id="User" value="User">User</option>
-                          <option id="Moderator" value="Moderator">Moderator</option>
-                        </select> 
-
+                          <!-- Input -->
+                          <input type="text" value="{{user.local.level}}" placeholder="Enter your level" name="level" class="form-control" readonly>
 
               </div>
             </div>
