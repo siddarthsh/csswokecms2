@@ -46,10 +46,11 @@
         </div>
 
       <div class="pt-4">
-
-        
+          @if(userofprofile.followers.length == "0")
+          <p>No followers yet</p>
+          @else
           <p>{{userofprofile.followers}}</p>
-        
+          @endif
         </div>
 			</article>
 

@@ -35,29 +35,24 @@
                 </div>
               @endif
               </div>
-      @if(userofprofile.description)
-      <div class="profile-description-data flex">
-      <p>{{userofprofile.description}}</p>
-      </div>
-      @endif
-      <div class="profile-follow-data flex">
-      <a href="/u/{{userofprofile.local.username}}/following" class="pr-1">{{userofprofile.followingusers.length}} following</a>
-        <a href="/u/{{userofprofile.local.username}}/followers" class="pl-1">{{userofprofile.followers.length}} followers</a>
-      </div>
+        @if(userofprofile.description)
+        <div class="profile-description-data flex">
+        <p>{{userofprofile.description}}</p>
+        </div>
+        @endif
+        <div class="profile-follow-data flex">
+        <a href="/u/{{userofprofile.local.username}}/following" class="pr-1">{{userofprofile.followingusers.length}} following</a>
+          <a href="/u/{{userofprofile.local.username}}/followers" class="pl-1">{{userofprofile.followers.length}} followers</a>
+        </div>
 
       <div class="pt-4">
           @if(userofprofile.followingusers.length == "0")
-          <h3 class="font-weight-bold">No followers yet</h3>
+          <p>Not following anyone yet</p>
           @else
-      <p>{{userofprofile.followingusers}}</p>
+          <p>{{userofprofile.followingusers}}</p>
           @endif
-      </div>
-      
-
+        </div>
 			</article>
-
-
-
 
 
 		</div>

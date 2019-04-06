@@ -99,7 +99,7 @@ module.exports = function(app, passport) {
   app.post("/edit/post/store", isLoggedIn, storeEditedPostController);
 
   // Based On Browsing
-  app.get("/u/:author/:slug", getPostController); //Post
+  app.get("/u/:author/p/:slug", getPostController); //Post
 
   app.get("/u/:username", getUserController);
   app.get("/u/:username/followers", getUserFollowersController);
