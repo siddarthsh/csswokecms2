@@ -13,6 +13,7 @@ var flash = require("connect-flash");
 var configDB = require("./config/database.js");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+
 // configuration ===============================================================
 mongoose
   .connect(configDB.url, { useNewUrlParser: true })

@@ -1,35 +1,39 @@
-@layout('layouts.sign')
+@layout('layouts.admin')
 
 @section('content')
-
-<body class="d-flex align-items-center bg-auth border-top border-top-2 border-primary" style="display: block;">
 
 
 <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 col-xl-4 my-5">
 
-          <!-- Heading -->
-          <h1 class="display-4 text-center mb-3">
-            Sign up
-          </h1>
-
-          <!-- Subheading -->
-          <p class="text-muted text-center mb-5">
-            Please Signup to continue
-          </p>
 
           <!-- Form -->
           <form action="/signup" method="POST" encType="multipart/form-data">
+
+                        <!-- Name -->
+            <div class="form-group flex">
+              <div class="pr-1">
+                <!-- First Name -->
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" name="firstName" class="form-control">
+              </div>
+              <div class="pl-1">
+                <!-- Last Name -->
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" name="lastName" class="form-control">
+              </div>
+
+            </div>
 
             <!-- Username -->
             <div class="form-group">
 
               <!-- Label -->
-              <label>Display Name</label>
+              <label>Username</label>
 
               <!-- Input -->
-              <input type="text" placeholder="Enter your username" name="username" class="form-control">
+              <input type="text" placeholder="Enter your username (cannot be changed)" name="username" class="form-control">
 
             </div>
 
@@ -64,7 +68,7 @@
 
             
             <!-- User Level -->
-            <div class="form-group">
+            <div class="form-group" style="display:none;">
 
               <!-- Label -->
               <label>

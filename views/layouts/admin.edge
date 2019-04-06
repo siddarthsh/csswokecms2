@@ -6,24 +6,69 @@
     <link rel="stylesheet" href="/css/theme.min.css">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
     <link rel="stylesheet" href="/fonts/feather/feather.min.css">
-    <script src="/js/tinymce/tinymce.min.js"></script>
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
     <script src="/libs/jquery/dist/jquery.min.js"></script>
+
     <script>
-    tinymce.init({
-      selector: 'textarea',
-      menubar: false,
-      min_height: 150,
-      plugins: [
-        'advlist autolink lists link image charmap print preview anchor textcolor',
-        'searchreplace visualblocks code fullscreen autoresize',
-        'insertdatetime media table paste code help wordcount'
-      ],
-      toolbar: 'formatselect | bold italic link image backcolor | alignleft aligncenter media | bullist numlist table | code fullscreen'
-    });
+      const quickbarsClassicConfig = {
+        selector: 'textarea.tinymce',
+        plugins: 'quickbars link code',
+        toolbar: 'quickbars code',
+        menubar: 'view insert tools custom',
+        link_quicklink: true,
+        height: 600,
+        setup: (ed) => {
+          ed.on('init', () => {
+            ed.hasVisual = true;
+            ed.addVisual();
+          });
+
+          ed.on('init', () => {
+            ed.setContent('<h1>Heading</h1><p><a name="anchor1"></a>anchor here.');
+          });
+        }
+      };
+
+      const dfreeHeaderConfig = {
+        selector: '.dfree-header',
+        plugins: [ 'quickbars' ],
+        toolbar: false,
+        menubar: false,
+        inline: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote'
+      };
+
+      const dfreeBodyConfig = {
+        selector: '.dfree-body',
+        menubar: false,
+        inline: true,
+        plugins: [
+          'autolink',
+          'contextmenu',
+          'link',
+          'lists',
+          'table',
+          'textcolor',
+          'image',
+          'quickbars',
+          'code'
+        ],
+        toolbar: false,
+        quickbars_insert_toolbar: 'quicktable image',
+        quickbars_selection_toolbar: 'bold italic | h2 h3 | blockquote quicklink',
+        contextmenu: 'inserttable deletetable | code',
+      };
+
+      tinymce.init(quickbarsClassicConfig);
+      tinymce.init(dfreeHeaderConfig);
+      tinymce.init(dfreeBodyConfig);
+
      </script>
 
     <style>
-    .mce-notification,.tox-notifications-container,.tox-statusbar,.mce-statusbar {display: none !important;}
+    .mce-notification,.tox-notifications-container,.tox-statusbar,.mce-statusbar {
+      display: none !important;
+    }
     </style>
   </head>
 
@@ -31,7 +76,28 @@
 
     <nav class="navbar navbar-expand-lg navbar-light" id="topnav">
         <div class="container">
-         <a href="/"> CSSWoke </a>
+          <div>
+          <a href="/"> CSSWoke </a>
+
+          @if(pageid == "createposts")
+          | Draft
+          @endif
+          @if(pageid == "settings")
+          | Settings
+          @endif
+          @if(pageid == "login")
+          | Sign In
+          @endif
+          @if(pageid == "signup")
+          | Getting Started
+          @endif
+          @if(pageid == "viewusers")
+          | All Users
+          @endif
+          @if(pageid == "viewposts")
+          | Your Posts
+          @endif
+          </div>
          @if(user.id)
          <div id="navbar-user" class="navbar-user" >
             <div class="dropdown">
@@ -42,16 +108,16 @@
 
               <div class="dropdown-menu dropdown-menu-right">
                 
-                <a href="/posts/new" class="dropdown-item">New post</a>
-                <a href="/viewposts" class="dropdown-item">Posts</a>
+                <a href="/me/posts/new" class="dropdown-item">New post</a>
+                <a href="/me/posts" class="dropdown-item">Posts</a>
                 
                 @if(user.local.level == "Admin")
                 <hr class="dropdown-divider">
-                <a href="/viewusers" class="dropdown-item">Users</a>
+                <a href="/admin/users" class="dropdown-item">Users</a>
                 @endif
                 <hr class="dropdown-divider">
-                <a href="/profile" class="dropdown-item">Profile</a>
-                <a href="/settings" class="dropdown-item">Settings</a>
+                <a href="/u/{{user.local.username}}" class="dropdown-item">Profile</a>
+                <a href="/me/settings" class="dropdown-item">Settings</a>
                 <a href="/logout" class="dropdown-item">Sign out</a>
               </div>
 
@@ -77,9 +143,9 @@
 
 
 
-<script src="../js/theme.min.js"></script>
-<script src="../libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/plugins/readingtime.js"></script>
+<script src="/js/theme.min.js"></script>
+<script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/plugins/readingtime.js"></script>
 <script>
 $('.article-post').readingTime();
 </script>

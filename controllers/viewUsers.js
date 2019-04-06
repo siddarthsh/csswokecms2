@@ -5,6 +5,7 @@ module.exports = async (req, res) => {
 
   res.render("viewusers", {
     user: req.user,
+    pageid: "viewusers",
     users
   });
 };

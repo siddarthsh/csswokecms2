@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
     const posts = await Post.find({ authorid: req.user._id });
 
     res.render("viewposts", {
+      pageid: "viewposts",
       user: req.user,
       posts
     });

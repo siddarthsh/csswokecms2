@@ -35,40 +35,23 @@
                 </div>
               @endif
               </div>
-      @if(userofprofile.description)
-      <div class="profile-description-data flex">
-      <p>{{userofprofile.description}}</p>
-      </div>
-      @endif
-      <div class="profile-follow-data flex">
-      <a href="/u/{{userofprofile.local.username}}/following" class="pr-1">{{userofprofile.followingusers.length}} following</a>
-        <a href="/u/{{userofprofile.local.username}}/followers" class="pl-1">{{userofprofile.followers.length}} followers</a>
-      </div>
+        @if(userofprofile.description)
+        <div class="profile-description-data flex">
+        <p>{{userofprofile.description}}</p>
+        </div>
+        @endif
+        <div class="profile-follow-data flex">
+        <a href="/u/{{userofprofile.local.username}}/following" class="pr-1">{{userofprofile.followingusers.length}} following</a>
+          <a href="/u/{{userofprofile.local.username}}/followers" class="pl-1">{{userofprofile.followers.length}} followers</a>
+        </div>
 
       <div class="pt-4">
-          @if(posts == "")
-          <h3 class="font-weight-bold">No posts published yet</h3>
-          @else
-            <h3 class="font-weight-bold">Latest</h3>
-            @each(post in posts)
-              <div class="post-preview">
-                <a href="/u/{{post.author}}/{{ post.slug }}">
-                  <h2 class="post-title">
-                    {{ post.title }}
-                  </h2>
-                </a>
-              </div>
-              <hr>
-            @endeach
-          
-          @endif
-      </div>
-      
 
+        
+          <p>{{userofprofile.followers}}</p>
+        
+        </div>
 			</article>
-
-
-
 
 
 		</div>

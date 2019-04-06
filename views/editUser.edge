@@ -20,7 +20,7 @@ $( document ).ready(function () {
           </h1>
 
           <!-- Form -->
-          <form action="/edit/user/store" method="POST" encType="multipart/form-data">
+          <form action="/admin/users/edit/store" method="POST" encType="multipart/form-data">
 
                         <!-- ID -->
             <div class="form-group" style="display:none;" >
@@ -35,13 +35,28 @@ $( document ).ready(function () {
             <div class="form-group">
 
               <!-- Label -->
-              <label>Display Name</label>
+              <label>Username</label>
 
               <!-- Input -->
               <input type="text" value="{{edituser.local.username}}" name="username" class="form-control">
 
             </div>
 
+
+            <!-- Name -->
+            <div class="form-group flex">
+              <div class="pr-1">
+                <!-- First Name -->
+                <label>First Name</label>
+                <input type="text" value="{{edituser.name.firstName}}" name="firstName" class="form-control">
+              </div>
+              <div class="pl-1">
+                <!-- Last Name -->
+                <label>Last Name</label>
+                <input type="text" value="{{edituser.name.lastName}}" name="lastName" class="form-control">
+              </div>
+
+            </div>
                         <!-- Email -->
                         <div class="form-group">
 

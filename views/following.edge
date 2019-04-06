@@ -46,21 +46,10 @@
       </div>
 
       <div class="pt-4">
-          @if(posts == "")
-          <h3 class="font-weight-bold">No posts published yet</h3>
+          @if(userofprofile.followingusers.length == "0")
+          <h3 class="font-weight-bold">No followers yet</h3>
           @else
-            <h3 class="font-weight-bold">Latest</h3>
-            @each(post in posts)
-              <div class="post-preview">
-                <a href="/u/{{post.author}}/{{ post.slug }}">
-                  <h2 class="post-title">
-                    {{ post.title }}
-                  </h2>
-                </a>
-              </div>
-              <hr>
-            @endeach
-          
+      <p>{{userofprofile.followingusers}}</p>
           @endif
       </div>
       

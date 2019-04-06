@@ -9,7 +9,7 @@
 				<div class="col-md-8  align-self-center">
 					<h1 class="display-3 mt-3 mb-3">{{post.title}}</h1>
 					<div class="d-flex align-items-center">
-						<small class="ml-2">{{post.author}}
+					<small class="ml-2"><a href="/u/{{post.author}}">{{post.author}}</a>
 							<span class="text-muted d-block">{{ post.createdAt.toDateString()}} &middot; <div style="float:right;" class="eta"></div></span>
 							@if(user.id == post.authorid)
 							<span style="float:left;"><a href="/edit/post/{{ post._id }}">Edit</a></span>

@@ -4,8 +4,8 @@ const User = require("../app/models/user");
 module.exports = (req, res) => {
   User.deleteOne({ _id: req.params.id }, (error, user) => {
     if (error) {
-      return res.redirect("/viewusers");
+      return res.redirect("/admin/users");
     }
-    res.redirect("/viewusers");
+    res.redirect("/admin/users");
   });
 };
