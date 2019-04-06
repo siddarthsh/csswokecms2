@@ -1631,6 +1631,7 @@ pre code {
   padding: .9375rem;
   vertical-align: top;
   border-top: 1px solid #edf2f9;
+  max-width: 65px;
 }
 
 .table thead th {
@@ -12532,7 +12533,7 @@ a.text-white:hover {
 .card-table thead th:first-child {
   padding-left: 1.5rem !important;
   overflow: auto;
-  max-width: 100px !important;
+  max-width: 250px !important;
 }
 
 .card-table tbody td:last-child,
