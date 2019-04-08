@@ -10,46 +10,46 @@
 
 
       <div class="flex">
-        <h1 class="display-5 mt-3 mb-3 font-weight-bold">{{userofprofile.name.firstName}} {{userofprofile.name.lastName}}</h1>
+        <h1 class="display-5 mt-3 mb-3 font-weight-bold">{{userofprofile.name}}</h1>
                 @if(user.id)
                 <div class="p-2">
-                    @if(user.followingusers.indexOf(userofprofile.local.username) > -1)
+                    @if(followers.followers.indexOf(user.id) > -1)
                   <form action="/unfollow/store" method="POST" encType="multipart/form-data">
                     <input style="display:none;" type="text" name="id"  value="{{user.id}}" placeholder="id" class="form-control" id="id" readonly>
                     <input style="display:none;" type="text" name="followedid"  value="{{userofprofile.id}}" placeholder="followedid" class="form-control" id="followedid" readonly>
-                  <input style="display:none;" type="text" name="username"  value="{{user.local.username}}" placeholder="username" class="form-control" id="username" readonly>
-                    <input style="display:none;" type="text" name="followingusers"  value="{{userofprofile.local.username}}" class="form-control" readonly>
+                  <input style="display:none;" type="text" name="username"  value="{{user.username}}" placeholder="username" class="form-control" id="username" readonly>
+                    <input style="display:none;" type="text" name="followingusers"  value="{{userofprofile.username}}" class="form-control" readonly>
                     <button class="btn btn-white">Unfollow</button>
                   </form>
-                  @elseif(user.local.username == userofprofile.local.username)
-                  <button class="btn btn-white">Edit profile</button>
+                  @elseif(user.username == userofprofile.username)
+                <a href="/u/{{userofprofile.username}}/edit" class="btn btn-white">Edit profile</a>
                   @else
                   <form action="/follow/store" method="POST" encType="multipart/form-data">
                     <input style="display:none;" type="text" name="id"  value="{{user.id}}" placeholder="id" class="form-control" id="id" readonly>
                     <input style="display:none;" type="text" name="followedid"  value="{{userofprofile.id}}" placeholder="followedid" class="form-control" id="followedid" readonly>
-                    <input style="display:none;" type="text" name="username"  value="{{user.local.username}}" placeholder="username" class="form-control" id="username" readonly>
-                    <input style="display:none;" type="text" name="followingusers"  value="{{userofprofile.local.username}}" class="form-control" readonly>
+                    <input style="display:none;" type="text" name="username"  value="{{user.username}}" placeholder="username" class="form-control" id="username" readonly>
+                    <input style="display:none;" type="text" name="followingusers"  value="{{userofprofile.username}}" class="form-control" readonly>
                     <button class="btn btn-primary">Follow</button>
                   </form>
                   @endif
                 </div>
               @endif
               </div>
-        @if(userofprofile.description)
-        <div class="profile-description-data flex">
-        <p>{{userofprofile.description}}</p>
-        </div>
-        @endif
-        <div class="profile-follow-data flex">
-        <a href="/u/{{userofprofile.local.username}}/following" class="pr-1">{{userofprofile.followingusers.length}} following</a>
-          <a href="/u/{{userofprofile.local.username}}/followers" class="pl-1">{{userofprofile.followers.length}} followers</a>
-        </div>
+      @if(userofprofile.description)
+      <div class="profile-description-data flex">
+      <p>{{userofprofile.description}}</p>
+      </div>
+      @endif
+      <div class="profile-follow-data flex">
+      <a href="/u/{{userofprofile.username}}/following" class="pr-1">{{followingusers.followingusers.length}} following</a>
+        <a href="/u/{{userofprofile.username}}/followers" class="pl-1">{{followers.followers.length}} followers</a>
+      </div>
 
       <div class="pt-4">
-          @if(userofprofile.followers.length == "0")
+          @if(followers.followers.length == "0")
           <p>No followers yet</p>
           @else
-          <p>{{userofprofile.followers}}</p>
+          <p>{{followers.followers}}</p>
           @endif
         </div>
 			</article>

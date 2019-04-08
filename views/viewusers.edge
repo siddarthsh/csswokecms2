@@ -12,8 +12,8 @@
               <tbody>
                 @each(user in users)
                 <tr>
-                  <td>{{ user.local.email }}</td>
-                <td><a href="/u/{{user.local.username}}">View</a></td>
+                  <td>{{ user.email }}</td>
+                <td><a href="/u/{{user.username}}">View</a></td>
                   <td><a href="/admin/users/edit/{{ user._id }}">Edit</a></td>
                   <td><a href="/admin/users/delete/{{ user._id }}">Delete</a></td>
                 </tr>

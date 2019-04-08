@@ -11,7 +11,7 @@
               <thead><tr><th>Post Name</th><th>Options</th></tr></thead>
               <tbody>
                 @each(post in posts)
-              <tr><td>{{ post.title }}</td><td><a href="/u/{{post.author}}/{{ post.slug }}">View</a></td><td><a href="/edit/post/{{ post._id }}">Edit</a></td><td><a href="/delete/{{ post._id }}">Delete</a></td></tr>
+              <tr><td>{{ post.title }}</td><td><a href="/u/{{post.username}}/p/{{ post.slug }}">View</a></td><td><a href="/edit/post/{{ post._id }}">Edit</a></td><td><a href="/delete/{{ post._id }}">Delete</a></td></tr>
                 @endeach
               </tbody>
             </table>

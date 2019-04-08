@@ -1,0 +1,53 @@
+@layout('layouts.admin')
+
+@section('content')
+
+
+
+<script>
+$(function(){
+    $('#save').click(function () {
+        var myname = $('#visible-name').html();
+        $('#hidden-name').val(myname);
+        var mydescription = $('#visible-description').html();
+        $('#hidden-description').val(mydescription);
+    });
+});
+</script>
+
+
+<div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-8">
+          <!-- Form -->
+          <form action="/me/profile/edit/store" method="POST" encType="multipart/form-data">
+                  <!-- ID // Hidden from User -->
+                  <div class="form-group" style="display:none;" >
+                    <input type="text" value="{{user._id}}" name="id" class="form-control" readonly>
+                  </div>
+                  <!-- First Name -->
+                  <div class="flex">
+                  <h1 class="display-5 mt-3 mb-3 font-weight-bold">
+                  <div id="visible-name" contenteditable="true">{{user.name}}</div>
+                  <textarea id="hidden-name" class="hidden-input" name="name"></textarea>
+                  </h1>
+                  </div>
+                  
+                  <div id="visible-description" contenteditable="true">{{user.description}}</div>
+                  <textarea id="hidden-description" class="hidden-input" name="description"></textarea>
+
+
+                    <!-- Submit -->
+                  <div class="flex pt-3">
+                  <button id="save" class="btn btn-primary mr-2">Save</button>
+                  <a href="/u/{{user.username}}" class="btn btn-white">Cancel</a>
+                  </div>
+          </form>
+
+        </div>
+      </div> <!-- / .row -->
+    </div>
+
+
+    
+@endsection

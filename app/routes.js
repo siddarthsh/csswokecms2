@@ -18,6 +18,7 @@ const isMod = require("../controllers/isMod");
 const getUserController = require("../controllers/getUser");
 const getUserFollowersController = require("../controllers/getUserFollowers");
 const getUserFollowingController = require("../controllers/getUserFollowing");
+const isProfileOwner = require("../controllers/isProfileOwner");
 
 const followUserController = require("../controllers/followUser");
 const unfollowUserController = require("../controllers/unfollowUser");
@@ -102,6 +103,11 @@ module.exports = function(app, passport) {
   app.get("/u/:author/p/:slug", getPostController); //Post
 
   app.get("/u/:username", getUserController);
+  app.get("/u/:username/edit", isLoggedIn, function(req, res) {
+    res.render("profile-edit", {
+      user: req.user // get the user out of session and pass to template
+    });
+  });
   app.get("/u/:username/followers", getUserFollowersController);
   app.get("/u/:username/following", getUserFollowingController);
 
@@ -118,8 +124,10 @@ module.exports = function(app, passport) {
   app.get("/admin/users/edit/:id", isLoggedIn, isAdmin, editUserController);
   app.post("/admin/users/edit/store", isLoggedIn, storeEditedUserController);
 
-  app.get("/passwordreset", (req, res) => {
-    res.render("passwordreset");
+  app.get("/forgotpassword", (req, res) => {
+    res.render("passwordreset", {
+      pageid: "forgotpassword"
+    });
   });
   // =====================================
   // LOGOUT ==============================

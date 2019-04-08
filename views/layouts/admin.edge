@@ -97,9 +97,17 @@
           @if(pageid == "viewposts")
           | Your Posts
           @endif
+          @if(pageid == "forgotpassword")
+          | Forgot Password
+          @endif
           </div>
+          
+          <div class="flex">
+          @if(pageid == "createposts")
+         <input type="button" class="btn btn-primary" name="answer" value="Ready to Publish?" onclick="publishPost()" />
+          @endif
          @if(user.id)
-         <div id="navbar-user" class="navbar-user" >
+         <div id="navbar-user" class="navbar-user pl-4" >
             <div class="dropdown">
         
               <a href="#" class="avatar avatar-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,16 +115,16 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right">
-                
+                @if((user.level == "Moderator") || (user.level == "Admin"))
                 <a href="/me/posts/new" class="dropdown-item">New post</a>
                 <a href="/me/posts" class="dropdown-item">Posts</a>
-                
-                @if(user.local.level == "Admin")
                 <hr class="dropdown-divider">
-                <a href="/admin/users" class="dropdown-item">Users</a>
                 @endif
+                @if(user.level == "Admin")
+                <a href="/admin/users" class="dropdown-item">Users</a>
                 <hr class="dropdown-divider">
-                <a href="/u/{{user.local.username}}" class="dropdown-item">Profile</a>
+                @endif
+                <a href="/u/{{user.username}}" class="dropdown-item">Profile</a>
                 <a href="/me/settings" class="dropdown-item">Settings</a>
                 <a href="/logout" class="dropdown-item">Sign out</a>
               </div>
@@ -131,6 +139,7 @@
         <a class="btn btn-primary float-right" href="/signup">Get Started</a>
         </div>
         @endif
+        </div>
       </nav>
 
     <div class="main-content bg-fixed-bottom ">

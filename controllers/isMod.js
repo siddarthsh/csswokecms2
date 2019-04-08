@@ -1,7 +1,7 @@
-const User = require("../app/models/user");
+const User = require("../app/models/User");
 
 module.exports = (req, res, next) => {
-  if (req.user.local.level == "Moderator" || "Admin") {
+  if (req.user.level == "Moderator" || req.user.level == "Admin") {
     return next();
   }
 

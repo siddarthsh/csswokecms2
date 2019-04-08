@@ -9,7 +9,7 @@ const PostSchema = mongoose.Schema({
   content: String,
   image: String,
   author: String,
-  authorid: String,
+  username: String,
   slug: { type: String, slug: "title" },
   createdAt: {
     type: Date,

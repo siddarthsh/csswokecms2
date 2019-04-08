@@ -1,20 +1,8 @@
 @layout('layouts.admin')
 
 @section('content')
-<!-- Page Header -->
-<header class="masthead" style="padding-top:20px;">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="page-heading">
-          <h1>Draft</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="container">
+
+<div class="container pt-2" >
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <form action="/posts/store" method="POST" encType="multipart/form-data">
@@ -25,9 +13,9 @@
             <input type="text" style="font-size: 42px;" name="temp-title" placeholder="Title" class="form-control" id="temp-title">
              <input type="file" name="image" class="form-control-file">
             <!-- Author -->
-             <input type="text" style="display:none;" value="{{user.local.username}}" name="author" placeholder="Author" class="form-control" id="author" readonly>
-            <!-- AuthorID -->
-             <input type="text" style="display:none;" value="{{user.id}}" name="authorid" placeholder="AuthorID" class="form-control" id="authorid" readonly>
+             <input type="text" style="display:none;" value="{{user.id}}" name="author" placeholder="Author" class="form-control" id="author" readonly>
+            <input type="text" style="display:none;" value="{{user.username}}" name="username" placeholder="username" class="form-control" id="username" readonly>
+
              
           </div>
         </div>
@@ -76,8 +64,6 @@
             </div> <!-- / .row -->
          </div>
         </div>
-        <!-- Open the "final-edits" window -->
-        <input type="button" class="btn btn-primary" name="answer" value="Ready to Publish?" onclick="publishPost()" />
       </form>
     </div>
   </div>

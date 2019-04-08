@@ -1,10 +1,9 @@
-const Followers = require("../app/models/Followers");
-const FollowingUsers = require("../app/models/FollowingUsers");
+const User = require("../app/models/User");
 
 module.exports = (req, res, next) => {
-  FollowingUsers.findOneAndUpdate(
-    { userid: req.body.id },
-    { $addToSet: { followingusers: req.body.followedid } },
+  User.findByIdAndUpdate(
+    req.body.id,
+    { $addToSet: { followingusers: req.body.followingusers } },
     { safe: true, upsert: true },
     function(err, doc) {
       if (err) {
@@ -13,9 +12,9 @@ module.exports = (req, res, next) => {
       }
     }
   );
-  Followers.findOneAndUpdate(
-    { userid: req.body.followedid },
-    { $addToSet: { followers: req.body.id } },
+  User.findByIdAndUpdate(
+    req.body.followedid,
+    { $addToSet: { followers: req.body.username } },
     { safe: true, upsert: true },
     function(err, doc) {
       if (err) {

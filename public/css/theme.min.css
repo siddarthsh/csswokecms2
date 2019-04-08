@@ -266,6 +266,10 @@ label {
   margin-bottom: .5rem
 }
 
+.hidden-input {
+  display: none;
+}
+
 button {
   border-radius: 0
 }
@@ -14535,7 +14539,6 @@ button:focus {
   width: 0;
   height: 0;
   content: "";
-  background-image: url(../img/masks/avatar-status.svg), url(../img/masks/avatar-group.svg), url(../img/masks/avatar-group-hover.svg), url(../img/masks/avatar-group-hover-last.svg)
 }
 
 .avatar-img {
@@ -15779,6 +15782,11 @@ button:focus {
 
 .select2-search--dropdown {
   padding: .375rem .75rem
+}
+
+.form-profile {
+  min-width: 10px;
+  border: none;
 }
 
 .form-control-sm+.select2-container--default.select2-container--focus .select2-selection--multiple,
