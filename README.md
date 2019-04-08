@@ -52,4 +52,4 @@ Once finished, go to your database, then to the collection `Users` and find the 
 ## Support
 I will not be providing any support for this project because I made this project just to practice my skills in Node.js and MongoDB.
 ## License
-The source-code is under __MIT license__.
+The source-code is under [__MIT license__](https://github.com/siddarthsh/jeezcms/blob/master/license.txt).
