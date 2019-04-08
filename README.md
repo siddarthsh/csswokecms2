@@ -1,6 +1,6 @@
 # JeezCMS
 
-Node.js Content Management System using MongoDB
+Node.js Content Management System with MongoDB
 
 ## Libraries Used
 These are the following libraries/APIs I've used in this project, if you're starting with editing my code, make sure you know how to work with these :
