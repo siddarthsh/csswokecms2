@@ -2,6 +2,8 @@
 
 Node.js Content Management System with MongoDB
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/183c1c7196564228b2361731a81825bd)](https://www.codacy.com/app/siddarthsh/jeezcms?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=siddarthsh/jeezcms&amp;utm_campaign=Badge_Grade)
+
 ## Libraries Used
 These are the following libraries/APIs I've used in this project, if you're starting with editing my code, make sure you know how to work with these :
 
