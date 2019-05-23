@@ -1,5 +1,7 @@
 # JeezCMS
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d7583e2b63f94cc7a833cdec40789ebc)](https://app.codacy.com/app/siddarthsh/jeezcms?utm_source=github.com&utm_medium=referral&utm_content=siddarthsh/jeezcms&utm_campaign=Badge_Grade_Dashboard)
+
 Node.js Content Management System with MongoDB
 
 ## Libraries Used
